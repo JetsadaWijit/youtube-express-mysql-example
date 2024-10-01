@@ -12,5 +12,6 @@
                 "eamodio.gitlens"
             ]
         }
-    }
+    },
+    "postCreateCommand": "cd src && npm install"
 }
