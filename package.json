@@ -1,0 +1,21 @@
+{
+  "name": "@jetsadawijit/express-mysql-example",
+  "repository": "github:jetsadawijit/express-mysql-example",
+  "issues": "github:jetsadawijit/express-mysql-example/issues",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Jetsada Wijit <jetsadawijit@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3"
+  }
+}
