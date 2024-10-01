@@ -12,7 +12,7 @@ services:
       - db_data:/var/lib/mysql
 
   server:
-    build: .
+    build: ./src
     environment:
       - NODE_ENV=development
     ports:
@@ -22,7 +22,7 @@ services:
     volumes:
       - .:/usr/src/app
     env_file:
-      - .env
+      - ./src/.env
 
   phpmyadmin:
     image: phpmyadmin:latest
