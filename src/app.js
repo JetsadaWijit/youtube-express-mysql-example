@@ -23,13 +23,24 @@ const db = mysql.createConnection({
     port: process.env.DB_PORT
 });
 
-db.connect((err) => {
-    if (err) {
-        console.error('Error connecting to MySQL:', err);
-    } else {
-        console.log('Connected to MySQL');
-    }
-});
+function connectToDatabase(retries = 5) {
+    db.connect((err) => {
+        if (err) {
+            console.error('Error connecting to MySQL:', err);
+            if (retries > 0) {
+                console.log(`Retrying... (${5 - retries + 1})`);
+                setTimeout(() => connectToDatabase(retries - 1), 5000);
+            } else {
+                console.error('Max retries reached. Exiting...');
+                process.exit(1);
+            }
+        } else {
+            console.log('Connected to MySQL');
+        }
+    });
+}
+
+connectToDatabase();
 
 // Routes
 const indexRouter = require('./routes/index');
